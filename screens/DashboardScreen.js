@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Text, Image } from 'react-native';
+import { Image } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 

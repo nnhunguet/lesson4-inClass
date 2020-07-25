@@ -1,7 +1,5 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import { createStackNavigator } from '@react-navigation/stack';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 const moment = require('moment');
@@ -32,13 +30,16 @@ function choiceColorCurrency(type) {
   return parseInt(type) === 1 ? "#FF958F" : parseInt(type) === 2 ? "#A254F2" : "#51EFDE";
 }
 
-export default function Category({item, navigation}) {
+export default function Category({item, navigation, data}) {
+  let curCategory = item.category;
+  let filterData = data.filter(item => item.category === curCategory)
   let date = new Date(item.date_time);
   return(
     <TouchableOpacity style={styles.container}
       onPress={() =>
         navigation.push('DetailScreen', {
-          name: choiceName(item.category)
+          category: item.category,
+          data: filterData
         })
       }
     > 
