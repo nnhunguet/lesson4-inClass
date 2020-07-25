@@ -6,6 +6,8 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 import DashboardScreen from '../components/Dashboard';
 import DetailScreen from '../screens/DetailScreen';
 import NotificationScreen from '../screens/NotificationScreen';
+import CardScreen from '../screens/CardScreen';
+
 const Stack = createStackNavigator();
 
 export default function Dashboard({ navigation }) {
@@ -39,6 +41,14 @@ export default function Dashboard({ navigation }) {
           component={DetailScreen} 
           options={{
             headerTitle: "DetailScreen",
+            headerTitleAlign: "center",
+          }}
+        />
+        <Stack.Screen 
+          name="CardScreen" 
+          component={CardScreen} 
+          options={{
+            headerTitle: "CardScreen",
             headerTitleAlign: "center",
           }}
         />

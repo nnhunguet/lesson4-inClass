@@ -9,17 +9,18 @@ const formatter = new Intl.NumberFormat('en-US', {
   minimumFractionDigits: 2
 })
 
-export default function HeaderFlatlist({ data }){
+export default function HeaderFlatlist({ data, navigation }){
+  const dataInfo = data.account_information;
   return(
     <View style={styles.container}>
       <Text style={{fontSize: 24, marginVertical: 12}}>List of Account</Text>
       <View style={styles.wrapcard}>
-        <Card data={data.bank} name="Bank Account" style={styles.card}/>
-        <Card data={data.credit} name="Credit card" style={styles.card}/>
-        <Card data={data.cash} name="Cash" style={styles.card}/>
+        <Card data={dataInfo.bank} name="Bank Account" style={styles.card} dataFiltered={data.detail.filter((item) => item.type === dataInfo.bank.type)} navigation={navigation}/>
+        <Card data={dataInfo.credit} name="Credit card" style={styles.card} dataFiltered={data.detail.filter((item) => item.type === dataInfo.credit.type)} navigation={navigation}/>
+        <Card data={dataInfo.cash} name="Cash" style={styles.card} dataFiltered={data.detail.filter((item) => item.type === dataInfo.cash.type)} navigation={navigation}/>
       </View>
       <View style={styles.total}>
-        <Text style={{color: "#FF958F", fontWeight: "bold", fontSize: 24}}>{formatter.format(parseInt(data.total))}</Text>
+        <Text style={{color: "#FF958F", fontWeight: "bold", fontSize: 24}}>{formatter.format(parseInt(dataInfo.total))}</Text>
         <Text style={{color: "#A6B1C0"}}>Total Balance</Text>
       </View>
     </View>

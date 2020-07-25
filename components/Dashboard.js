@@ -42,7 +42,7 @@ export default function Dashboard({navigation}) {
   ]
   return(
     <FlatList
-      ListHeaderComponent={<HeaderFlatlist data={DATA.account_information}/>}
+      ListHeaderComponent={<HeaderFlatlist data={DATA} navigation={navigation}/>}
       style={{backgroundColor: "#F2F4F7"}}
       data={dataCategory}
       renderItem={ ({item}) => <Category item={item} navigation={navigation} data={data}/>}
