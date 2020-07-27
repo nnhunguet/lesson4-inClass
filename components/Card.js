@@ -21,6 +21,7 @@ export default function Card({data, name, dataFiltered, navigation}){
     <TouchableOpacity 
       style={{backgroundColor: choiceColor(data.type), borderRadius: 10, padding: 16}}
       onPress={() => navigation.navigate('CardScreen', {
+        title: name,
         data: dataFiltered
       })}  
     >

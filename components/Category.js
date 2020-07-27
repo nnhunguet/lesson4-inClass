@@ -38,6 +38,7 @@ export default function Category({item, navigation, data}) {
     <TouchableOpacity style={styles.container}
       onPress={() =>
         navigation.push('DetailScreen', {
+          title: choiceName(item.category),
           category: item.category,
           data: filterData
         })

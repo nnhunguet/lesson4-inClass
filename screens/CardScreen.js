@@ -11,7 +11,7 @@ export default function CardScreen({route}) {
       renderItem={ ({item}) => (
         <View style={styles.container}>
           <View style={{backgroundColor: "#FEC180", padding: 20, borderRadius: "50%"}}>
-            <Image source={require('../assets/cart.png')} style={{width: 50, height: 50, resizeMode: "cotain",}}/>
+            <Image source={require('../assets/cart.png')} style={{width: 50, height: 50, resizeMode: "contain",}}/>
           </View>
           <View style={styles.wrapText}>
             <Text>{`You bought ${item.production_name} for $${item.spend_money}`}</Text>
